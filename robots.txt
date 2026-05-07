@@ -1,0 +1,8 @@
+User-agent: *
+Allow: /
+
+# Block service worker and JS modules from indexing
+Disallow: /sw.js
+Disallow: /js/
+
+Sitemap: https://pdfree.io/sitemap.xml
