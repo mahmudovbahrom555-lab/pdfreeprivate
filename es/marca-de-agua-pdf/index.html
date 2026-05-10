@@ -239,7 +239,7 @@
       <div class="privacy-bar__item">
         <span class="privacy-bar__icon" aria-hidden="true">🗑️</span>
         <div>
-          <strong>Olvidado al instante</strong>
+          <strong>Eliminado al instante</strong>
           <p>Los archivos viven solo en RAM. Cierra la pestaña y desaparecen — sin registros ni rastros.</p>
         </div>
       </div>
@@ -277,7 +277,7 @@
       </div>
     </div>
 
-    <div id="dropZone" class="drop-zone" tabindex="0" role="button" aria-label="Upload files — click or drag and drop">
+    <div id="dropZone" class="drop-zone" tabindex="0" role="button" aria-label="Subir archivos — haz clic o arrastra y suelta">
       <input type="file" id="fileInput" multiple accept=".pdf" aria-hidden="true">
       <span class="drop-icon" aria-hidden="true">📂</span>
       <div class="drop-title">Suelta los archivos aquí</div>
@@ -319,9 +319,9 @@
 
       <!-- Feedback — priority #0: directly under download, same visual weight -->
       <div class="fb-row" id="fbRow">
-        <button type="button" class="fb-row-btn fb-row-btn--bug"  data-open-feedback data-fb-type="bug">🐛 Found a bug</button>
-        <button type="button" class="fb-row-btn fb-row-btn--idea" data-open-feedback data-fb-type="idea">💡 Have an idea</button>
-        <button type="button" class="fb-row-btn fb-row-btn--good" data-open-feedback data-fb-type="other">👍 All good!</button>
+        <button type="button" class="fb-row-btn fb-row-btn--bug"  data-open-feedback data-fb-type="bug">🐛 Reportar error</button>
+        <button type="button" class="fb-row-btn fb-row-btn--idea" data-open-feedback data-fb-type="idea">💡 Tengo una idea</button>
+        <button type="button" class="fb-row-btn fb-row-btn--good" data-open-feedback data-fb-type="other">👍 Todo bien!</button>
       </div>
 
       <!-- Донат — ненавязчивый, появляется через 2 сек после успеха.
@@ -330,17 +330,17 @@
       <div id="donateStrip" class="donate-strip" style="display:none" role="complementary">
         <span class="donate-plant" aria-hidden="true">🌱</span>
         <div class="donate-text">
-          <strong id="donateTitle">This tool is free, forever.</strong>
-          <p id="donateDesc">If it saved you time, a small tip helps keep it alive — and ad-free.</p>
+          <strong id="donateTitle">Esta herramienta es gratuita — para siempre.</strong>
+          <p id="donateDesc">Si te ahorró tiempo, una pequeña contribución ayuda a mantenerla — sin anuncios.</p>
         </div>
         <div class="donate-actions">
-          <button id="donateBtnYes"   class="donate-yes"   type="button">☕ Support $0.50+</button>
-          <button id="donateBtnSkip"  class="donate-skip"  type="button">Maybe later</button>
-          <button id="donateBtnClose" class="donate-close" type="button" aria-label="Close">✕</button>
+          <button id="donateBtnYes"   class="donate-yes"   type="button">☕ Apoyar con $0,50+</button>
+          <button id="donateBtnSkip"  class="donate-skip"  type="button">Quizás después</button>
+          <button id="donateBtnClose" class="donate-close" type="button" aria-label="Cerrar">✕</button>
         </div>
       </div>
       <div id="thankyouStrip" class="thankyou-strip" style="display:none" role="status">
-        🌿 Thank you! You help keep this free for everyone.
+        🌿 ¡Gracias! Ayudas a mantenerla gratuita para todos.
       </div>
     </div>
 
@@ -389,14 +389,14 @@
   </section>
 
   <footer>
-    PDFree · <strong>All processing happens 100% in your browser</strong> · Files are <strong>never uploaded</strong><br>
-    <span style="color:var(--green)">🔒</span> Your documents never leave your device &nbsp;·&nbsp;
-    <span style="color:var(--green)">♥</span> Built to be free for everyone, forever<br>
+    PDFree · <strong>Todo el procesamiento ocurre 100% en tu navegador</strong> · Los archivos nunca son <strong>enviados</strong><br>
+    <span style="color:var(--green)">🔒</span> Tus documentos nunca salen de tu dispositivo &nbsp;·&nbsp;
+    <span style="color:var(--green)">♥</span> Creado para ser gratuito para todos — para siempre<br>
     <span style="font-size:11px;margin-top:8px;display:inline-block;color:var(--text3)">
-      Open source under the
+      Código abierto bajo la licencia
       <a href="https://www.gnu.org/licenses/agpl-3.0.html" target="_blank" rel="noopener" style="color:var(--green)">GNU AGPLv3</a>
       &nbsp;·&nbsp;
-      <a href="https://github.com/mahmudovbahrom555-lab/PDFree" target="_blank" rel="noopener" style="color:var(--green)">View source on GitHub</a>
+      <a href="https://github.com/mahmudovbahrom555-lab/PDFree" target="_blank" rel="noopener" style="color:var(--green)">Código fuente en GitHub</a>
       &nbsp;·&nbsp;
       <button type="button" data-open-feedback class="fb-footer-btn">💬 Feedback</button>
     </span>
