@@ -30,10 +30,10 @@
     worker-src  'self' blob:;
     object-src  'none';
   ">
-  <title>Censurer PDF en Ligne — Gratuit, Suppression Définitive | PDFree</title>
-  <meta name="description" content="Censurer un PDF gratuitement en ligne. Suppression définitive des zones sensibles. 100 % privé — aucun envoi, sans inscription.">
-  <meta property="og:title"       content="Censurer PDF en Ligne — Gratuit, Suppression Définitive | PDFree">
-  <meta property="og:description" content="Censurer un PDF gratuitement en ligne. Suppression définitive des zones sensibles. 100 % privé — aucun envoi, sans inscription.">
+  <title>Caviarder un PDF en Ligne — Gratuit, Suppression Définitive | PDFree</title>
+  <meta name="description" content="Caviarder un PDF gratuitement en ligne. Suppression définitive et irrécupérable des zones sensibles. 100 % privé — aucun envoi, sans inscription.">
+  <meta property="og:title"       content="Caviarder un PDF en Ligne — Gratuit, Suppression Définitive | PDFree">
+  <meta property="og:description" content="Caviarder un PDF gratuitement en ligne. Suppression définitive et irrécupérable des zones sensibles. 100 % privé — aucun envoi, sans inscription.">
   <meta property="og:type"        content="website">
   <meta property="og:url"         content="https://pdfree.io/fr/censurer-pdf/">
   <meta property="og:site_name"   content="PDFree">
@@ -116,7 +116,7 @@
       <a href="../../fr/fusionner-pdf/" class="tool-card featured" data-tool="merge" aria-label="Fusionner PDF">
         <span class="tool-icon">🔗</span>
         <div class="tool-name">Fusionner PDF</div>
-        <div class="tool-desc">Combiner autant de PDFs que vous voulez, sans restriction</div>
+        <div class="tool-desc">Combiner autant de PDF que vous voulez, sans restriction</div>
       </a>
       <a href="../../fr/compresser-pdf/" class="tool-card" data-tool="compress" aria-label="Compresser PDF">
         <span class="tool-icon">🗜️</span>
@@ -143,9 +143,9 @@
         <div class="tool-name">Protéger PDF</div>
         <div class="tool-desc">Mot de passe AES-256 et permissions — 100 % privé</div>
       </a>
-      <a href="../../fr/censurer-pdf/" class="tool-card" data-tool="redact" aria-label="Censurer PDF">
+      <a href="../../fr/censurer-pdf/" class="tool-card" data-tool="redact" aria-label="Caviarder PDF">
         <span class="tool-icon">🖌️</span>
-        <div class="tool-name">Censurer PDF</div>
+        <div class="tool-name">Caviarder PDF</div>
         <div class="tool-desc">Supprimer définitivement les données sensibles en local</div>
       </a>
       <a href="../../fr/numerotation-pdf/" class="tool-card" data-tool="pagenum" aria-label="Numérotation PDF">
@@ -195,8 +195,8 @@
       <div class="privacy-bar__item">
         <span class="privacy-bar__icon" aria-hidden="true">🗑️</span>
         <div>
-          <strong>Oubli immédiat</strong>
-          <p>Les fichiers n'existent que dans la RAM. Fermez l'onglet — ils disparaissent. Aucun journal, aucune trace.</p>
+          <strong>Aucune trace</strong>
+          <p>Vos fichiers disparaissent dès la fermeture de l'onglet. Aucun journal, aucune donnée conservée.</p>
         </div>
       </div>
     </div>
@@ -207,22 +207,22 @@
     <div class="tool-header">
       <div class="tool-header-icon" id="toolIcon" aria-hidden="true">🖌️</div>
       <div class="tool-header-text">
-        <h2 id="toolTitle">Censurer un PDF — suppression définitive et locale</h2>
-        <p  id="toolDesc">Censurez les zones sensibles de votre PDF directement dans le navigateur. Irrécupérable. Aucun envoi.</p>
+        <h2 id="toolTitle">Caviarder un PDF — suppression définitive et locale</h2>
+        <p  id="toolDesc">Caviardez les zones sensibles de votre PDF directement dans le navigateur. Irrécupérable. Aucun envoi.</p>
       </div>
     </div>
 
     <div id="dropZone" class="drop-zone" tabindex="0" role="button" aria-label="Sélectionner des fichiers ou les déposer ici">
       <input type="file" id="fileInput" multiple accept=".pdf" aria-hidden="true">
       <span class="drop-icon" aria-hidden="true">📂</span>
-      <div class="drop-title">Déposer les fichiers ici</div>
-      <div class="drop-sub">ou cliquer pour parcourir — autant de fichiers que vous voulez</div>
+      <div class="drop-title">Déposez vos fichiers ici</div>
+      <div class="drop-sub">ou cliquez pour parcourir — autant de fichiers que vous voulez</div>
       <button class="drop-btn" id="chooseFilesBtn" type="button">Sélectionner les fichiers</button>
     </div>
 
     <div id="fileList"    class="file-list" aria-live="polite" aria-label="Fichiers sélectionnés"></div>
     <div id="fileCount"   class="file-count"   style="display:none"></div>
-    <div id="reorderHint" class="reorder-hint" style="display:none">↕ Glisser pour réorganiser</div>
+    <div id="reorderHint" class="reorder-hint" style="display:none">↕ Glissez pour réorganiser</div>
 
     <div id="splitOptions"    class="split-options"   style="display:none" aria-label="Options de division"></div>
     <div id="compressOptions" class="compress-options" style="display:none" aria-label="Options de compression"></div>
@@ -235,7 +235,7 @@
     <div id="redactOptions"   class="j2p-options"     style="display:none" aria-label="Options de censure"></div>
     <div id="rotateOptions"   class="j2p-options"     style="display:none" aria-label="Options de rotation"></div>
 
-    <button id="mergeBtn"  class="merge-btn"  type="button" disabled data-mode="process">Censurer le PDF</button>
+    <button id="mergeBtn"  class="merge-btn"  type="button" disabled data-mode="process">Caviarder le PDF</button>
     <button id="cancelBtn" class="cancel-btn" type="button" style="display:none" aria-label="Annuler le traitement">✕ Annuler</button>
 
     <div id="progressBar"   class="progress-bar"><div id="progressFill" class="progress-fill"></div></div>
@@ -251,7 +251,7 @@
         <button id="downloadBtn" class="download-btn" type="button">⬇ Télécharger</button>
       </div>
       <div class="fb-row" id="fbRow">
-        <button type="button" class="fb-row-btn fb-row-btn--bug"  data-open-feedback data-fb-type="bug">🐛 Bug trouvé</button>
+        <button type="button" class="fb-row-btn fb-row-btn--bug"  data-open-feedback data-fb-type="bug">🐛 Signaler un bug</button>
         <button type="button" class="fb-row-btn fb-row-btn--idea" data-open-feedback data-fb-type="idea">💡 Idée</button>
         <button type="button" class="fb-row-btn fb-row-btn--good" data-open-feedback data-fb-type="other">👍 Parfait !</button>
       </div>
@@ -280,18 +280,18 @@
   <section class="seo-article" aria-labelledby="seoArticleTitle">
     <div class="seo-article__inner">
 
-      <h1 id="seoArticleTitle" style="font-size:28px; color:var(--text); margin:0 0 20px; font-weight:700;">Censurer un PDF en Ligne — Supprimer Définitivement les Informations Sensibles</h1>
-      <p>PDFree censure les textes et zones sensibles directement dans le navigateur — 100 % local, sans envoi, sans inscription. Les zones censurées sont intégrées définitivement et ne peuvent pas être récupérées.</p>
+      <h1 id="seoArticleTitle" style="font-size:28px; color:var(--text); margin:0 0 20px; font-weight:700;">Caviarder un PDF en Ligne — Supprimer Définitivement les Informations Sensibles</h1>
+      <p>PDFree caviarde les textes et zones sensibles directement dans le navigateur — 100 % local, sans envoi, sans inscription. Les zones caviardées sont intégrées définitivement et ne peuvent pas être récupérées.</p>
       <h3 style="font-size:20px; color:var(--text); margin:32px 0 16px; font-weight:600;">Note importante</h3>
-      <p>La censure ne supprime pas les métadonnées (auteur, date de création). Utilisez l'outil Métadonnées en complément pour une suppression complète.</p>
+      <p>Le caviardage ne supprime pas les métadonnées (auteur, date de création). Utilisez l'outil Métadonnées en complément pour une suppression complète.</p>
       <h3 style="font-size:20px; color:var(--text); margin:32px 0 16px; font-weight:600;">Conformité RGPD</h3>
-      <p>Pour un partage conforme au RGPD : d'abord censurer, puis nettoyer les métadonnées et enfin protéger avec un mot de passe.</p>
+      <p>Pour un partage conforme au RGPD : d'abord caviarder, puis nettoyer les métadonnées et enfin protéger avec un mot de passe.</p>
 
       <h3 style="font-size:20px; color:var(--text); margin:32px 0 16px; font-weight:600;">Outils associés</h3>
       <ul style="margin:16px 0; padding-left:24px;">
-    <li><a href="/fr/proteger-pdf/" style="color:var(--green);">Protéger PDF</a> — Sécuriser après la censure</li>
+    <li><a href="/fr/proteger-pdf/" style="color:var(--green);">Protéger PDF</a> — Sécuriser après le caviardage</li>
     <li><a href="/fr/filigrane-pdf/" style="color:var(--green);">Filigrane PDF</a> — Marquer le document comme Confidentiel</li>
-    <li><a href="/fr/metadonnees-pdf/" style="color:var(--green);">Métadonnées PDF</a> — Nettoyer les métadonnées après la censure</li>
+    <li><a href="/fr/metadonnees-pdf/" style="color:var(--green);">Métadonnées PDF</a> — Nettoyer les métadonnées après le caviardage</li>
       </ul>
 
       <h3 style="font-size:20px; color:var(--text); margin:32px 0 16px; font-weight:600;">Questions fréquentes</h3>
