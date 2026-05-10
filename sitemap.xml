@@ -12,6 +12,7 @@
     <xhtml:link rel="alternate" hreflang="es" href="https://pdfree.io/es/"/>
     <xhtml:link rel="alternate" hreflang="pt" href="https://pdfree.io/pt/"/>
     <xhtml:link rel="alternate" hreflang="de" href="https://pdfree.io/de/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://pdfree.io/fr/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://pdfree.io/"/>
   </url>
 
@@ -25,6 +26,7 @@
     <xhtml:link rel="alternate" hreflang="es" href="https://pdfree.io/es/unir-pdf/"/>
     <xhtml:link rel="alternate" hreflang="pt" href="https://pdfree.io/pt/juntar-pdf/"/>
     <xhtml:link rel="alternate" hreflang="de" href="https://pdfree.io/de/pdf-zusammenfuehren/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://pdfree.io/fr/fusionner-pdf/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://pdfree.io/merge-pdf/"/>
   </url>
   <url>
@@ -36,6 +38,7 @@
     <xhtml:link rel="alternate" hreflang="es" href="https://pdfree.io/es/comprimir-pdf/"/>
     <xhtml:link rel="alternate" hreflang="pt" href="https://pdfree.io/pt/comprimir-pdf/"/>
     <xhtml:link rel="alternate" hreflang="de" href="https://pdfree.io/de/pdf-komprimieren/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://pdfree.io/fr/compresser-pdf/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://pdfree.io/compress-pdf/"/>
   </url>
   <url>
@@ -47,6 +50,7 @@
     <xhtml:link rel="alternate" hreflang="es" href="https://pdfree.io/es/dividir-pdf/"/>
     <xhtml:link rel="alternate" hreflang="pt" href="https://pdfree.io/pt/dividir-pdf/"/>
     <xhtml:link rel="alternate" hreflang="de" href="https://pdfree.io/de/pdf-aufteilen/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://pdfree.io/fr/diviser-pdf/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://pdfree.io/split-pdf/"/>
   </url>
   <url>
@@ -58,6 +62,7 @@
     <xhtml:link rel="alternate" hreflang="es" href="https://pdfree.io/es/rotar-pdf/"/>
     <xhtml:link rel="alternate" hreflang="pt" href="https://pdfree.io/pt/girar-pdf/"/>
     <xhtml:link rel="alternate" hreflang="de" href="https://pdfree.io/de/pdf-drehen/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://pdfree.io/fr/rotation-pdf/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://pdfree.io/rotate-pdf/"/>
   </url>
   <url>
@@ -69,6 +74,7 @@
     <xhtml:link rel="alternate" hreflang="es" href="https://pdfree.io/es/marca-de-agua-pdf/"/>
     <xhtml:link rel="alternate" hreflang="pt" href="https://pdfree.io/pt/marca-dagua-pdf/"/>
     <xhtml:link rel="alternate" hreflang="de" href="https://pdfree.io/de/wasserzeichen-pdf/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://pdfree.io/fr/filigrane-pdf/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://pdfree.io/watermark-pdf/"/>
   </url>
   <url>
@@ -80,6 +86,7 @@
     <xhtml:link rel="alternate" hreflang="es" href="https://pdfree.io/es/proteger-pdf/"/>
     <xhtml:link rel="alternate" hreflang="pt" href="https://pdfree.io/pt/proteger-pdf/"/>
     <xhtml:link rel="alternate" hreflang="de" href="https://pdfree.io/de/pdf-schuetzen/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://pdfree.io/fr/proteger-pdf/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://pdfree.io/protect-pdf/"/>
   </url>
   <url>
@@ -91,6 +98,7 @@
     <xhtml:link rel="alternate" hreflang="es" href="https://pdfree.io/es/censurar-pdf/"/>
     <xhtml:link rel="alternate" hreflang="pt" href="https://pdfree.io/pt/censurar-pdf/"/>
     <xhtml:link rel="alternate" hreflang="de" href="https://pdfree.io/de/pdf-schwaerzen/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://pdfree.io/fr/censurer-pdf/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://pdfree.io/redact-pdf/"/>
   </url>
   <url>
@@ -102,6 +110,7 @@
     <xhtml:link rel="alternate" hreflang="es" href="https://pdfree.io/es/numeros-de-pagina-pdf/"/>
     <xhtml:link rel="alternate" hreflang="pt" href="https://pdfree.io/pt/numeros-de-pagina-pdf/"/>
     <xhtml:link rel="alternate" hreflang="de" href="https://pdfree.io/de/seitenzahlen-pdf/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://pdfree.io/fr/numerotation-pdf/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://pdfree.io/pagenum-pdf/"/>
   </url>
   <url>
@@ -113,6 +122,7 @@
     <xhtml:link rel="alternate" hreflang="es" href="https://pdfree.io/es/extraer-pdf/"/>
     <xhtml:link rel="alternate" hreflang="pt" href="https://pdfree.io/pt/extrair-pdf/"/>
     <xhtml:link rel="alternate" hreflang="de" href="https://pdfree.io/de/seiten-extrahieren/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://pdfree.io/fr/extraire-pdf/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://pdfree.io/extract-pdf/"/>
   </url>
   <url>
@@ -124,6 +134,7 @@
     <xhtml:link rel="alternate" hreflang="es" href="https://pdfree.io/es/jpg-a-pdf/"/>
     <xhtml:link rel="alternate" hreflang="pt" href="https://pdfree.io/pt/jpg-para-pdf/"/>
     <xhtml:link rel="alternate" hreflang="de" href="https://pdfree.io/de/jpg-zu-pdf/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://pdfree.io/fr/jpg-en-pdf/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://pdfree.io/jpg2pdf/"/>
   </url>
   <url>
@@ -135,6 +146,7 @@
     <xhtml:link rel="alternate" hreflang="es" href="https://pdfree.io/es/pdf-a-jpg/"/>
     <xhtml:link rel="alternate" hreflang="pt" href="https://pdfree.io/pt/pdf-para-jpg/"/>
     <xhtml:link rel="alternate" hreflang="de" href="https://pdfree.io/de/pdf-zu-jpg/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://pdfree.io/fr/pdf-en-jpg/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://pdfree.io/pdf2jpg/"/>
   </url>
 
@@ -373,6 +385,86 @@
   </url>
   <url>
     <loc>https://pdfree.io/de/pdf-metadaten/</loc>
+    <lastmod>2026-05-10</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- ── FR pages ── -->
+  <url>
+    <loc>https://pdfree.io/fr/</loc>
+    <lastmod>2026-05-10</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://pdfree.io/fr/fusionner-pdf/</loc>
+    <lastmod>2026-05-10</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://pdfree.io/fr/compresser-pdf/</loc>
+    <lastmod>2026-05-10</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://pdfree.io/fr/diviser-pdf/</loc>
+    <lastmod>2026-05-10</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://pdfree.io/fr/rotation-pdf/</loc>
+    <lastmod>2026-05-10</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://pdfree.io/fr/filigrane-pdf/</loc>
+    <lastmod>2026-05-10</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://pdfree.io/fr/proteger-pdf/</loc>
+    <lastmod>2026-05-10</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://pdfree.io/fr/censurer-pdf/</loc>
+    <lastmod>2026-05-10</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://pdfree.io/fr/numerotation-pdf/</loc>
+    <lastmod>2026-05-10</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://pdfree.io/fr/extraire-pdf/</loc>
+    <lastmod>2026-05-10</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://pdfree.io/fr/jpg-en-pdf/</loc>
+    <lastmod>2026-05-10</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://pdfree.io/fr/pdf-en-jpg/</loc>
+    <lastmod>2026-05-10</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://pdfree.io/fr/metadonnees-pdf/</loc>
     <lastmod>2026-05-10</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
