@@ -154,22 +154,6 @@
        · Рекомендуемый формат: фиксированный 728×90
          (data-ad-format="auto" иногда даёт неожиданную высоту)
        ══════════════════════════════════════════════════ -->
-  <div id="ad-zone-a" class="ad-slot ad-slot--leaderboard" aria-label="Advertisement">
-    <ins class="adsbygoogle"
-         style="display:block;width:728px;height:90px;margin:0 auto"
-         data-ad-client="ca-pub-XXXXXXXXXXXXXXXX"
-         data-ad-slot="SLOT_ID_ZONE_A">
-    </ins>
-    <div class="ad-fallback" style="display:none">
-      <a href="https://ko-fi.com/YOUR_USERNAME" target="_blank" rel="noopener" class="ad-fallback__link">
-        ♥ PDFree is free — support it with a coffee
-      </a>
-    </div>
-    <div class="ad-placeholder">
-      <span class="ad-placeholder__label">Ad · Zone A · Leaderboard 728×90</span>
-      <span class="ad-placeholder__note">Под навигацией · один impression · всегда видима</span>
-    </div>
-  </div>
 
   <!-- ── Hero ── -->
   <section id="hero" class="hero">
@@ -252,18 +236,6 @@
        · Один impression — не сбрасывается между обработками
        · <ins> создаётся один раз через ads.js
        ══════════════════════════════════════════════════ -->
-  <div id="ad-zone-b" class="ad-slot ad-slot--infeed" style="display:none" aria-label="Advertisement">
-    <!-- ads.js инжектирует <ins> сюда один раз -->
-    <div class="ad-fallback" style="display:none">
-      <a href="https://ko-fi.com/YOUR_USERNAME" target="_blank" rel="noopener" class="ad-fallback__link">
-        ♥ Keep PDFree free — buy us a coffee
-      </a>
-    </div>
-    <div class="ad-placeholder">
-      <span class="ad-placeholder__label">Ad · Zone B · In-feed</span>
-      <span class="ad-placeholder__note">После первого файла · один impression</span>
-    </div>
-  </div>
 
   <!-- ── Tool workspace ── -->
   <main id="toolArea" class="main-area" style="display:none" aria-busy="false">
@@ -316,31 +288,7 @@
         <button id="downloadBtn" class="download-btn" type="button">⬇ Baixar</button>
       </div>
 
-      <!-- Feedback — priority #0: directly under download, same visual weight -->
-      <div class="fb-row" id="fbRow">
-        <button type="button" class="fb-row-btn fb-row-btn--bug"  data-open-feedback data-fb-type="bug">🐛 Reportar erro</button>
-        <button type="button" class="fb-row-btn fb-row-btn--idea" data-open-feedback data-fb-type="idea">💡 Tenho uma ideia</button>
-        <button type="button" class="fb-row-btn fb-row-btn--good" data-open-feedback data-fb-type="other">👍 Tudo certo!</button>
-      </div>
 
-      <!-- Донат — ненавязчивый, появляется через 2 сек после успеха.
-           Совместим с рекламой: лояльные пользователи донатят,
-           остальные видят рекламу. Два источника дохода не конфликтуют. -->
-      <div id="donateStrip" class="donate-strip" style="display:none" role="complementary">
-        <span class="donate-plant" aria-hidden="true">🌱</span>
-        <div class="donate-text">
-          <strong id="donateTitle">Esta ferramenta é gratuita — para sempre.</strong>
-          <p id="donateDesc">Se economizou seu tempo, uma pequena contribuição ajuda a mantê-la — sem anúncios.</p>
-        </div>
-        <div class="donate-actions">
-          <button id="donateBtnYes"   class="donate-yes"   type="button">☕ Apoiar com $0,50+</button>
-          <button id="donateBtnSkip"  class="donate-skip"  type="button">Talvez depois</button>
-          <button id="donateBtnClose" class="donate-close" type="button" aria-label="Fechar">✕</button>
-        </div>
-      </div>
-      <div id="thankyouStrip" class="thankyou-strip" style="display:none" role="status">
-        🌿 Obrigado! Você ajuda a mantê-la gratuita para todos.
-      </div>
     </div>
 
     <!-- ══════════════════════════════════════════════════
@@ -349,22 +297,6 @@
          · <ins> пересоздаётся при каждом успехе → новый impression
          · Кнопка закрытия снижает раздражение
          ══════════════════════════════════════════════════ -->
-    <div id="ad-zone-c"
-         class="ad-slot ad-slot--post-success"
-         style="display:none; opacity:0; transition: opacity 0.3s ease;"
-         aria-label="Advertisement">
-      <button class="ad-zone-c__close" id="adZoneCClose" type="button" aria-label="Close ad">✕</button>
-      <!-- ads.js пересоздаёт <ins> здесь при каждом успехе -->
-      <div class="ad-fallback" style="display:none">
-        <a href="https://ko-fi.com/YOUR_USERNAME" target="_blank" rel="noopener" class="ad-fallback__link">
-          ♥ Enjoy PDFree? Support us with a coffee
-        </a>
-      </div>
-      <div class="ad-placeholder">
-        <span class="ad-placeholder__label">Ad · Zone C · Post-success ★</span>
-        <span class="ad-placeholder__note">Через 3 сек после скачивания · новый impression каждый раз</span>
-      </div>
-    </div>
 
 
 
@@ -404,7 +336,6 @@
   <div id="toast" class="toast" role="status" aria-live="polite"></div>
 
   <!-- JSZip and pdf-lib are now dynamically imported via ESM when needed -->
-  <script type="module" src="../../js/feedback.js"></script>
   <script type="module" src="../../js/app.js?v=9"></script>
 
 
