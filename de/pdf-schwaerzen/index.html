@@ -3,6 +3,12 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!--
+    ════════════════════════════════════════════════════════════════
+    Content Security Policy — defence-in-depth against XSS
+    ════════════════════════════════════════════════════════════════
+  -->
   <meta http-equiv="Content-Security-Policy" content="
     default-src 'self';
     script-src  'self'
@@ -33,12 +39,12 @@
   <title>PDF Schwärzen Online — Sensible Daten Entfernen | PDFree</title>
   <meta name="description" content="Sensible Texte und Bilder in PDFs dauerhaft schwärzen. 100 % lokale Verarbeitung — nichts verlässt dein Gerät. Kostenlos.">
   <meta property="og:title"       content="PDF Schwärzen Online — Sensible Daten Entfernen | PDFree">
-  <meta property="og:description" content="PDFs schwärzen und sensible Daten entfernen. 100 % lokal. Kostenlos.">
+  <meta property="og:description" content="Sensible Texte und Bilder in PDFs dauerhaft schwärzen. 100 % lokale Verarbeitung — nichts verlässt dein Gerät. Kostenlos.">
   <meta property="og:type"        content="website">
-  <meta property="og:url"         content="https://pdfree.io/de/pdf-schwaerzen/">
-  <meta property="og:site_name"   content="PDFree">
-  <meta property="og:locale"      content="de_DE">
-  <meta property="og:image"       content="https://pdfree.io/icons/og-image.jpg">
+  <meta property="og:url"       content="https://pdfree.io/de/pdf-schwaerzen/">
+  <meta property="og:site_name" content="PDFree">
+  <meta property="og:locale"    content="de_DE">
+  <meta property="og:image"     content="https://pdfree.io/icons/og-image.jpg">
   <meta property="og:image:width"  content="1200">
   <meta property="og:image:height" content="633">
   <meta name="twitter:card"        content="summary_large_image">
@@ -78,7 +84,7 @@
   {
   "@context": "https://schema.org",
   "@type": "WebApplication",
-  "name": "PDF Schwärzen",
+  "name": "Bereich Abdecken",
   "description": "Sensible Texte und Bilder in PDFs dauerhaft schwärzen. 100 % lokale Verarbeitung — nichts verlässt dein Gerät. Kostenlos.",
   "url": "https://pdfree.io/de/pdf-schwaerzen/",
   "applicationCategory": "UtilitiesApplication",
@@ -104,26 +110,18 @@
   "mainEntity": [
     {
       "@type": "Question",
-      "name": "Werden meine Dateien auf einen Server hochgeladen?",
+      "name": "Werden meine Dateien auf einem Server gespeichert?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Nein. PDFree verarbeitet alle Dateien vollständig in deinem Browser. Deine Dokumente verlassen dein Gerät zu keinem Zeitpunkt."
+        "text": "Nein. PDFree arbeitet vollständig auf deinem Gerät (clientseitig). Wir haben keine Server, die deine Dateien verarbeiten, was 100 % Privatsphäre garantiert."
       }
     },
     {
       "@type": "Question",
-      "name": "Gibt es Dateigrößen- oder Seitenlimits?",
+      "name": "Gibt es ein Limit für die Dateigröße oder Seitenanzahl?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Nein. PDFree hat keine künstlichen Limits. Die einzige Begrenzung ist der verfügbare Arbeitsspeicher deines Geräts."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Funktioniert PDFree auch offline?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Ja. PDFree ist eine Progressive Web App (PWA) und funktioniert nach dem ersten Laden vollständig offline."
+        "text": "Nein, es gibt keine künstlichen Limits. Die einzige Begrenzung ist der verfügbare Arbeitsspeicher deines Computers oder Smartphones."
       }
     }
   ]
@@ -143,6 +141,12 @@
     {
       "@type": "ListItem",
       "position": 2,
+      "name": "DE",
+      "item": "https://pdfree.io/de/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
       "name": "PDF Schwärzen",
       "item": "https://pdfree.io/de/pdf-schwaerzen/"
     }
@@ -153,7 +157,7 @@
 <body>
 
   <nav>
-    <a href="../../de/" class="logo" id="logo" aria-label="Zur Startseite" style="text-decoration:none">PDF<span>ree</span></a>
+    <a href="../../de/" class="logo" id="logo" aria-label="Go to homepage" style="text-decoration:none">PDF<span>ree</span></a>
     <div class="nav-links">
       <a href="../../de/pdf-zusammenfuehren/" class="nav-link" data-tool="merge">Zusammenfügen</a>
       <a href="../../de/pdf-aufteilen/" class="nav-link" data-tool="split">Aufteilen</a>
@@ -173,11 +177,11 @@
   </section>
 
   <!-- ── Privacy banner ── -->
-  <section class="privacy-banner" aria-label="Datenschutzversprechen">
+  <section class="privacy-banner" aria-label="Privacy promise">
     <div class="privacy-banner__icon" aria-hidden="true">🔒</div>
     <div class="privacy-banner__text">
       <strong>Deine Dateien bleiben auf deinem Gerät.</strong>
-      Wir verwenden Web Workers und clientseitige Bibliotheken — nichts wird jemals an einen Server gesendet.
+      Wir nutzen Web Worker und clientseitige Bibliotheken — nichts wird jemals an einen Server gesendet.
     </div>
   </section>
 
@@ -191,22 +195,57 @@
 
   <!-- ── Tools grid ── -->
   <section id="toolsGrid" class="tools-section">
-    <div class="section-label">Alle Tools</div>
+    <div class="section-label">Alle Werkzeuge</div>
     <div class="tools-grid">
       <a href="../../de/pdf-zusammenfuehren/" class="tool-card featured" data-tool="merge" aria-label="PDF Zusammenfügen">
         <span class="tool-icon">🔗</span>
         <div class="tool-name">PDF Zusammenfügen</div>
-        <div class="tool-desc">Beliebig viele PDFs kombinieren — ohne Einschränkungen</div>
+        <div class="tool-desc">Beliebig viele PDF-Dateien zusammenfügen — keine Einschränkungen</div>
       </a>
       <a href="../../de/pdf-aufteilen/" class="tool-card" data-tool="split" aria-label="PDF Aufteilen">
         <span class="tool-icon">✂️</span>
         <div class="tool-name">PDF Aufteilen</div>
-        <div class="tool-desc">Seiten extrahieren oder in Einzeldateien aufteilen</div>
+        <div class="tool-desc">Seiten extrahieren oder in einzelne Dateien aufteilen</div>
       </a>
       <a href="../../de/pdf-komprimieren/" class="tool-card" data-tool="compress" aria-label="PDF Komprimieren">
         <span class="tool-icon">🗜️</span>
         <div class="tool-name">PDF Komprimieren</div>
-        <div class="tool-desc">Dateigröße reduzieren ohne Qualitätsverlust</div>
+        <div class="tool-desc">Dateigröße ohne Qualitätsverlust reduzieren</div>
+      </a>
+      <a href="../../de/pdf-drehen/" class="tool-card" data-tool="rotate" aria-label="PDF Drehen">
+        <span class="tool-icon">🔄</span>
+        <div class="tool-name">PDF Drehen</div>
+        <div class="tool-desc">Seitenausrichtung in beliebigen PDFs korrigieren</div>
+      </a>
+      <a href="../../de/wasserzeichen-pdf/" class="tool-card" data-tool="watermark" aria-label="Wasserzeichen">
+        <span class="tool-icon">💧</span>
+        <div class="tool-name">Wasserzeichen</div>
+        <div class="tool-desc">Text auf jeder Seite stempeln — diagonal oder gekachelt</div>
+      </a>
+      <a href="../../de/pdf-schuetzen/" class="tool-card" data-tool="protect" aria-label="PDF Schützen">
+        <span class="tool-icon">🔒</span>
+        <div class="tool-name">PDF Schützen</div>
+        <div class="tool-desc">AES-256-Passwort und Berechtigungen — 100 % privat</div>
+      </a>
+      <a href="../../de/pdf-schwaerzen/" class="tool-card" data-tool="redact" aria-label="Bereich Abdecken">
+        <span class="tool-icon">🖌️</span>
+        <div class="tool-name">Bereich Abdecken</div>
+        <div class="tool-desc">Wasserzeichen, Unterschriften oder sensible Daten lokal ausblenden</div>
+      </a>
+      <a href="../../de/seitenzahlen-pdf/" class="tool-card" data-tool="pagenum" aria-label="Seitenzahlen">
+        <span class="tool-icon">🔢</span>
+        <div class="tool-name">Seitenzahlen</div>
+        <div class="tool-desc">Nummerierte Fußzeilen hinzufügen — Arabisch, Römisch oder ABC</div>
+      </a>
+      <a href="../../de/seiten-extrahieren/" class="tool-card" data-tool="extract" aria-label="Seiten Extrahieren">
+        <span class="tool-icon">📑</span>
+        <div class="tool-name">Seiten Extrahieren</div>
+        <div class="tool-desc">Ausgewählte Seiten in ein neues PDF extrahieren</div>
+      </a>
+      <a href="../../de/pdf-metadaten/" class="tool-card" data-tool="meta" aria-label="Metadaten Bearbeiten">
+        <span class="tool-icon">🏷️</span>
+        <div class="tool-name">Metadaten Bearbeiten</div>
+        <div class="tool-desc">Titel, Autor, Schlüsselwörter anzeigen und bearbeiten</div>
       </a>
       <a href="../../de/jpg-zu-pdf/" class="tool-card" data-tool="jpg2pdf" aria-label="JPG zu PDF">
         <span class="tool-icon">🖼️</span>
@@ -218,46 +257,11 @@
         <div class="tool-name">PDF zu JPG</div>
         <div class="tool-desc">Seiten als hochwertige Bilder exportieren</div>
       </a>
-      <a href="../../de/seiten-extrahieren/" class="tool-card" data-tool="extract" aria-label="Seiten Extrahieren">
-        <span class="tool-icon">📑</span>
-        <div class="tool-name">Seiten Extrahieren</div>
-        <div class="tool-desc">Ausgewählte Seiten als neues PDF speichern</div>
-      </a>
-      <a href="../../de/wasserzeichen-pdf/" class="tool-card" data-tool="watermark" aria-label="Wasserzeichen PDF">
-        <span class="tool-icon">💧</span>
-        <div class="tool-name">Wasserzeichen PDF</div>
-        <div class="tool-desc">Text auf jeder Seite stempeln — diagonal oder als Kachel</div>
-      </a>
-      <a href="../../de/seitenzahlen-pdf/" class="tool-card" data-tool="pagenum" aria-label="Seitenzahlen PDF">
-        <span class="tool-icon">🔢</span>
-        <div class="tool-name">Seitenzahlen PDF</div>
-        <div class="tool-desc">Seitenzahlen einfügen — arabisch, römisch oder alphabetisch</div>
-      </a>
-      <a href="../../de/pdf-metadaten/" class="tool-card" data-tool="meta" aria-label="PDF Metadaten">
-        <span class="tool-icon">🏷️</span>
-        <div class="tool-name">PDF Metadaten</div>
-        <div class="tool-desc">Titel, Autor, Schlüsselwörter ansehen und bearbeiten</div>
-      </a>
-      <a href="../../de/pdf-schwaerzen/" class="tool-card" data-tool="redact" aria-label="PDF Schwärzen">
-        <span class="tool-icon">🖌️</span>
-        <div class="tool-name">PDF Schwärzen</div>
-        <div class="tool-desc">Sensible Daten lokal und dauerhaft entfernen</div>
-      </a>
-      <a href="../../de/pdf-drehen/" class="tool-card" data-tool="rotate" aria-label="PDF Drehen">
-        <span class="tool-icon">🔄</span>
-        <div class="tool-name">PDF Drehen</div>
-        <div class="tool-desc">Seitenausrichtung in beliebigen PDFs korrigieren</div>
-      </a>
-      <a href="../../de/pdf-schuetzen/" class="tool-card" data-tool="protect" aria-label="PDF Schützen">
-        <span class="tool-icon">🔒</span>
-        <div class="tool-name">PDF Schützen</div>
-        <div class="tool-desc">AES-256-Passwort und Berechtigungen — 100 % privat</div>
-      </a>
     </div>
   </section>
 
   <!-- ── Privacy trust bar ── -->
-  <section class="privacy-bar" aria-label="Datenschutzgarantie">
+  <section class="privacy-bar" aria-label="Privacy guarantee">
     <div class="privacy-bar__inner">
       <div class="privacy-bar__item">
         <span class="privacy-bar__icon" aria-hidden="true">🔒</span>
@@ -287,14 +291,14 @@
   <main id="toolArea" class="main-area" style="display:none" aria-busy="false">
 
     <div class="tool-header">
-      <div class="tool-header-icon" id="toolIcon" aria-hidden="true">🔗</div>
+      <div class="tool-header-icon" id="toolIcon" aria-hidden="true">🖌️</div>
       <div class="tool-header-text">
-        <h2 id="toolTitle">PDF schwärzen — sensible Inhalte entfernen</h2>
-        <p  id="toolDesc">Sensible Texte und Bereiche dauerhaft schwärzen. Verarbeitung lokal — nichts verlässt dein Gerät.</p>
+        <h2 id="toolTitle">PDF Schwärzen Online</h2>
+        <p  id="toolDesc">Sensible Texte und Bilder in PDFs dauerhaft schwärzen. 100 % lokale Verarbeitung — nichts verlässt dein Gerät. Kostenlos.</p>
       </div>
     </div>
 
-    <div id="dropZone" class="drop-zone" tabindex="0" role="button" aria-label="PDF-Dateien auswählen oder hierher ziehen">
+    <div id="dropZone" class="drop-zone" tabindex="0" role="button" aria-label="Dateien hier ablegen">
       <input type="file" id="fileInput" multiple accept=".pdf" aria-hidden="true">
       <span class="drop-icon" aria-hidden="true">📂</span>
       <div class="drop-title">Dateien hier ablegen</div>
@@ -302,23 +306,23 @@
       <button class="drop-btn" id="chooseFilesBtn" type="button">Dateien auswählen</button>
     </div>
 
-    <div id="fileList"    class="file-list" aria-live="polite" aria-label="Ausgewählte Dateien"></div>
-    <div id="fileCount"   class="file-count"   style="display:none"></div>
-    <div id="reorderHint" class="reorder-hint" style="display:none">↕ Zum Neuanordnen ziehen</div>
+    <div id="fileList"     class="file-list"    aria-live="polite" aria-label="Dateien hier ablegen"></div>
+    <div id="fileCount"    class="file-count"   style="display:none"></div>
+    <div id="reorderHint"  class="reorder-hint" style="display:none">↕ Zum Neuanordnen ziehen</div>
 
-    <div id="splitOptions"    class="split-options"   style="display:none" aria-label="Aufteilen-Optionen"></div>
-    <div id="compressOptions" class="compress-options" style="display:none" aria-label="Komprimierungsoptionen"></div>
-    <div id="jpg2pdfOptions"  class="j2p-options"     style="display:none" aria-label="JPG zu PDF Optionen"></div>
-    <div id="pdf2jpgOptions"  class="j2p-options"     style="display:none" aria-label="PDF zu JPG Optionen"></div>
-    <div id="watermarkOptions" class="j2p-options"    style="display:none" aria-label="Wasserzeichen-Optionen"></div>
-    <div id="pageNumOptions"  class="j2p-options"     style="display:none" aria-label="Seitenzahlen-Optionen"></div>
-    <div id="metaOptions"     class="j2p-options"     style="display:none" aria-label="Metadaten-Editor"></div>
-    <div id="protectOptions"  class="j2p-options"     style="display:none" aria-label="PDF-Schutz-Optionen"></div>
-    <div id="redactOptions"   class="j2p-options"     style="display:none" aria-label="Schwärzen-Optionen"></div>
-    <div id="rotateOptions"   class="j2p-options"     style="display:none" aria-label="PDF-Drehen-Optionen"></div>
+    <div id="splitOptions"     class="split-options"    style="display:none"></div>
+    <div id="compressOptions"  class="compress-options" style="display:none"></div>
+    <div id="jpg2pdfOptions"   class="j2p-options"      style="display:none"></div>
+    <div id="pdf2jpgOptions"   class="j2p-options"      style="display:none"></div>
+    <div id="watermarkOptions" class="j2p-options"      style="display:none"></div>
+    <div id="pageNumOptions"   class="j2p-options"      style="display:none"></div>
+    <div id="metaOptions"      class="j2p-options"      style="display:none"></div>
+    <div id="protectOptions"   class="j2p-options"      style="display:none"></div>
+    <div id="redactOptions"    class="j2p-options"      style="display:none"></div>
+    <div id="rotateOptions"    class="j2p-options"      style="display:none"></div>
 
-    <button id="mergeBtn"  class="merge-btn"  type="button" disabled data-mode="process">PDF schwärzen</button>
-    <button id="cancelBtn" class="cancel-btn" type="button" style="display:none" aria-label="Verarbeitung abbrechen">✕ Abbrechen</button>
+    <button id="mergeBtn"  class="merge-btn"  type="button" disabled data-mode="process">Bereich Abdecken</button>
+    <button id="cancelBtn" class="cancel-btn" type="button" style="display:none" aria-label="✕ Abbrechen">✕ Abbrechen</button>
 
     <div id="progressBar"   class="progress-bar"><div id="progressFill" class="progress-fill"></div></div>
     <div id="progressLabel" class="progress-label"></div>
@@ -336,8 +340,7 @@
 
   </main>
 
-  <!-- ── SEO Article ── -->
-  <section class="seo-article" aria-labelledby="seoArticleTitle">
+<section class="seo-article" aria-labelledby="seoArticleTitle">
     <div class="seo-article__inner">
 
       <h1 id="seoArticleTitle" style="font-size:28px; color:var(--text); margin:0 0 20px; font-weight:700;">PDF Schwärzen Online — Sensible Informationen Dauerhaft Entfernen</h1>
@@ -376,15 +379,12 @@
       <a href="https://www.gnu.org/licenses/agpl-3.0.html" target="_blank" rel="noopener" style="color:var(--green)">GNU AGPLv3</a>
       &nbsp;·&nbsp;
       <a href="https://github.com/mahmudovbahrom555-lab/PDFree" target="_blank" rel="noopener" style="color:var(--green)">Quellcode auf GitHub</a>
-      &nbsp;·&nbsp;
-      <button type="button" data-open-feedback class="fb-footer-btn">💬 Feedback</button>
     </span>
   </footer>
 
   <div id="toast" class="toast" role="status" aria-live="polite"></div>
 
   <script type="module" src="../../js/app.js?v=9"></script>
-
-<!-- Cloudflare Web Analytics --><script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "5cbef445bc6d4370af5d5ad3d9633534"}' ></script><!-- End Cloudflare Web Analytics -->
+<!-- Cloudflare Web Analytics --><script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "5cbef445bc6d4370af5d5ad3d9633534"}'></script><!-- End Cloudflare Web Analytics -->
 </body>
 </html>

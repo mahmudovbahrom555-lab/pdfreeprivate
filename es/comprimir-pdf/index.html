@@ -7,42 +7,6 @@
   <!--
     ════════════════════════════════════════════════════════════════
     Content Security Policy — defence-in-depth against XSS
-
-    Design decisions:
-    ─────────────────
-    script-src: NO 'unsafe-inline'
-      We have zero inline <script> tags. Allowing unsafe-inline would
-      let any XSS bypass every other protection. AdSense injects its
-      scripts via programmatic document.createElement — that is covered
-      by the domain allowlist, not by unsafe-inline.
-
-    style-src: 'unsafe-inline' ALLOWED
-      We set element.style.display/opacity/width in JS and have
-      inline style= attributes in HTML (ad <ins> tags, footer spans).
-      Style-only XSS cannot execute code, so this is an acceptable
-      tradeoff. Alternative would be refactoring all inline styles to
-      CSS classes — noted as future improvement.
-
-    worker-src: blob: REQUIRED
-      pdf.js ≥ 3.x creates its PDF worker via a blob URL
-      (pdfjsLib.GlobalWorkerOptions.workerSrc = blob:...).
-      Without blob: the PDF→JPG tool breaks silently on first use.
-      Our own worker.js is covered by 'self'.
-
-    connect-src: *.doubleclick.net REQUIRED for AdSense
-      AdSense makes fetch/XHR calls to multiple googlesyndication and
-      doubleclick endpoints for ad selection and reporting. Without
-      these the ad slots show as empty (fallback to Ko-fi is fine, but
-      kills revenue). Added conservatively; remove if not monetising.
-
-    img-src: data: and blob: REQUIRED
-      pdf.js renders page thumbnails as data: URIs.
-      URL.createObjectURL() for JPG→PDF previews produces blob: URIs.
-      Without blob: the image preview thumbnails are blocked by CSP.
-      (Symptoms: blank previews + console error about img-src blob:)
-
-    frame-src: googlesyndication/doubleclick
-      AdSense renders ad creatives inside cross-origin iframes.
     ════════════════════════════════════════════════════════════════
   -->
   <meta http-equiv="Content-Security-Policy" content="
@@ -75,7 +39,7 @@
   <title>Comprimir PDF Online — Reducir Tamaño Localmente | PDFree</title>
   <meta name="description" content="Reduce el tamaño del PDF sin perder calidad. Procesado en tu navegador — archivos nunca subidos. Gratis, sin límites.">
   <meta property="og:title"       content="Comprimir PDF Online — Reducir Tamaño Localmente | PDFree">
-  <meta property="og:description" content="Reduce el tamaño del PDF sin perder calidad. Procesado en el navegador — archivos nunca subidos. Gratis.">
+  <meta property="og:description" content="Reduce el tamaño del PDF sin perder calidad. Procesado en tu navegador — archivos nunca subidos. Gratis, sin límites.">
   <meta property="og:type"        content="website">
   <meta property="og:url"       content="https://pdfree.io/es/comprimir-pdf/">
   <meta property="og:site_name" content="PDFree">
@@ -93,7 +57,6 @@
   <link rel="alternate" hreflang="de" href="https://pdfree.io/de/pdf-komprimieren/">
   <link rel="alternate" hreflang="fr" href="https://pdfree.io/fr/compresser-pdf/">
   <link rel="alternate" hreflang="x-default" href="https://pdfree.io/compress-pdf/">
-  
 
   <!-- PWA -->
   <link rel="manifest" href="../../manifest.json">
@@ -105,7 +68,6 @@
   <link rel="apple-touch-icon" href="../../icons/icon-192.png">
   <link rel="icon" type="image/svg+xml" href="/icons/favicon.svg">
 
-  <!-- Privacy-first analytics (no cookies, GDPR compliant) -->
   <script defer data-domain="pdfree.io" src="https://plausible.io/js/script.js"></script>
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -117,21 +79,6 @@
   <link rel="stylesheet" href="../../css/animations.css">
   <link rel="stylesheet" href="../../css/layout.css">
   <link rel="stylesheet" href="../../css/components.css">
-
-  <!--
-    ══════════════════════════════════════════════════════
-    GOOGLE ADSENSE — раскомментируй когда аккаунт одобрен:
-
-    <script async
-      src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXXXXXXXXXXXXXX"
-      crossorigin="anonymous">
-    </script>
-
-    Без этого тега adsbygoogle.push({}) накапливает запросы
-    в очереди и выполнит их когда скрипт загрузится —
-    это стандартное поведение, ничего не сломается.
-    ══════════════════════════════════════════════════════
-  -->
 
   <script type="application/ld+json">
   {
@@ -194,6 +141,12 @@
     {
       "@type": "ListItem",
       "position": 2,
+      "name": "ES",
+      "item": "https://pdfree.io/es/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
       "name": "Comprimir PDF",
       "item": "https://pdfree.io/es/comprimir-pdf/"
     }
@@ -208,21 +161,13 @@
     <div class="nav-links">
       <a href="../../es/unir-pdf/" class="nav-link" data-tool="merge">Unir</a>
       <a href="../../es/dividir-pdf/" class="nav-link" data-tool="split">Dividir</a>
-      <a href="../../es/comprimir-pdf/" class="nav-link" data-tool="compress">Comprimir</a>
+      <a href="../../es/comprimir-pdf/" class="nav-link active" data-tool="compress">Comprimir</a>
       <a href="../../es/jpg-a-pdf/" class="nav-link" data-tool="jpg2pdf">JPG→PDF</a>
       <a href="../../es/marca-de-agua-pdf/" class="nav-link" data-tool="watermark">Marca de agua</a>
       <a href="../../es/metadatos-pdf/" class="nav-link" data-tool="meta">Metadatos</a>
       <a href="../../es/proteger-pdf/" class="nav-link" data-tool="protect">Proteger</a>
     </div>
   </nav>
-
-  <!-- ══════════════════════════════════════════════════
-       ZONE A — Leaderboard 728×90
-       · Под nav, выше fold → +38% CTR
-       · Статичный <ins>, один impression на сессию
-       · Рекомендуемый формат: фиксированный 728×90
-         (data-ad-format="auto" иногда даёт неожиданную высоту)
-       ══════════════════════════════════════════════════ -->
 
   <!-- ── Hero ── -->
   <section id="hero" class="hero">
@@ -231,12 +176,12 @@
     <p>Une, divide, comprime, marca y convierte — todo ocurre <strong>en tu navegador</strong>. Tus archivos nunca salen de tu dispositivo. Sin servidores. Sin cuentas. Solo resultados.</p>
   </section>
 
-  <!-- ── Privacy banner (compact inline) ── -->
+  <!-- ── Privacy banner ── -->
   <section class="privacy-banner" aria-label="Privacy promise">
     <div class="privacy-banner__icon" aria-hidden="true">🔒</div>
     <div class="privacy-banner__text">
-      <strong>Your files stay on your device.</strong>
-      We use Web Workers and client-side libraries — nothing is ever sent to any server.
+      <strong>Tus archivos se quedan en tu dispositivo.</strong>
+      Usamos Web Workers y librerías locales — nada se envía jamás a un servidor.
     </div>
   </section>
 
@@ -252,22 +197,66 @@
   <section id="toolsGrid" class="tools-section">
     <div class="section-label">Todas las herramientas</div>
     <div class="tools-grid">
-      <a href="../../es/unir-pdf/" class="tool-card featured" data-tool="merge" aria-label="Merge PDF">
+      <a href="../../es/unir-pdf/" class="tool-card featured" data-tool="merge" aria-label="Unir PDF">
         <span class="tool-icon">🔗</span>
         <div class="tool-name">Unir PDF</div>
         <div class="tool-desc">Combina archivos PDF ilimitados — sin restricciones</div>
       </a>
-      <a href="../../es/dividir-pdf/" class="tool-card" data-tool="split"><span class="tool-icon">✂️</span><div class="tool-name">Dividir PDF</div><div class="tool-desc">Extrae páginas o divide en archivos separados</div></a>
-      <a href="../../es/comprimir-pdf/" class="tool-card" data-tool="compress"><span class="tool-icon">🗜️</span><div class="tool-name">Comprimir PDF</div><div class="tool-desc">Reduce el tamaño sin perder calidad</div></a>
-      <a href="../../es/jpg-a-pdf/" class="tool-card" data-tool="jpg2pdf"><span class="tool-icon">🖼️</span><div class="tool-name">JPG a PDF</div><div class="tool-desc">Convierte imágenes a PDF al instante</div></a>
-      <a href="../../es/pdf-a-jpg/" class="tool-card" data-tool="pdf2jpg"><span class="tool-icon">📸</span><div class="tool-name">PDF a JPG</div><div class="tool-desc">Extrae páginas como imágenes de alta calidad</div></a>
-      <a href="../../es/extraer-pdf/" class="tool-card" data-tool="extract"><span class="tool-icon">📑</span><div class="tool-name">Extraer Páginas</div><div class="tool-desc">Extrae páginas seleccionadas a un nuevo PDF</div></a>
-      <a href="../../es/marca-de-agua-pdf/" class="tool-card" data-tool="watermark"><span class="tool-icon">💧</span><div class="tool-name">Marca de agua</div><div class="tool-desc">Estampa texto en cada página — diagonal o en mosaico</div></a>
-      <a href="../../es/numeros-de-pagina-pdf/" class="tool-card" data-tool="pagenum"><span class="tool-icon">🔢</span><div class="tool-name">Números de página</div><div class="tool-desc">Añade números de página en el pie — Arábigos, Romanos o ABC</div></a>
-      <a href="../../es/metadatos-pdf/" class="tool-card" data-tool="meta"><span class="tool-icon">🏷️</span><div class="tool-name">Editar Metadatos</div><div class="tool-desc">Ver y editar título, autor, palabras clave</div></a>
-      <a href="../../es/censurar-pdf/" class="tool-card" data-tool="redact"><span class="tool-icon">🖌️</span><div class="tool-name">Ocultar Área</div><div class="tool-desc">Ocultar marcas de agua, firmas o datos sensibles localmente</div></a>
-      <a href="../../es/rotar-pdf/" class="tool-card" data-tool="rotate"><span class="tool-icon">🔄</span><div class="tool-name">Rotar PDF</div><div class="tool-desc">Arregla la orientación de páginas en cualquier PDF</div></a>
-      <a href="../../es/proteger-pdf/" class="tool-card" data-tool="protect"><span class="tool-icon">🔒</span><div class="tool-name">Proteger PDF</div><div class="tool-desc">Contraseña AES-256 y permisos — 100% privado</div></a>
+      <a href="../../es/dividir-pdf/" class="tool-card" data-tool="split" aria-label="Dividir PDF">
+        <span class="tool-icon">✂️</span>
+        <div class="tool-name">Dividir PDF</div>
+        <div class="tool-desc">Extrae páginas o divide en archivos separados</div>
+      </a>
+      <a href="../../es/comprimir-pdf/" class="tool-card" data-tool="compress" aria-label="Comprimir PDF">
+        <span class="tool-icon">🗜️</span>
+        <div class="tool-name">Comprimir PDF</div>
+        <div class="tool-desc">Reduce el tamaño sin perder calidad</div>
+      </a>
+      <a href="../../es/rotar-pdf/" class="tool-card" data-tool="rotate" aria-label="Rotar PDF">
+        <span class="tool-icon">🔄</span>
+        <div class="tool-name">Rotar PDF</div>
+        <div class="tool-desc">Arregla la orientación de páginas en cualquier PDF</div>
+      </a>
+      <a href="../../es/marca-de-agua-pdf/" class="tool-card" data-tool="watermark" aria-label="Marca de agua">
+        <span class="tool-icon">💧</span>
+        <div class="tool-name">Marca de agua</div>
+        <div class="tool-desc">Estampa texto en cada página — diagonal o en mosaico</div>
+      </a>
+      <a href="../../es/proteger-pdf/" class="tool-card" data-tool="protect" aria-label="Proteger PDF">
+        <span class="tool-icon">🔒</span>
+        <div class="tool-name">Proteger PDF</div>
+        <div class="tool-desc">Contraseña AES-256 y permisos — 100% privado</div>
+      </a>
+      <a href="../../es/censurar-pdf/" class="tool-card" data-tool="redact" aria-label="Ocultar Área">
+        <span class="tool-icon">🖌️</span>
+        <div class="tool-name">Ocultar Área</div>
+        <div class="tool-desc">Ocultar marcas de agua, firmas o datos sensibles localmente</div>
+      </a>
+      <a href="../../es/numeros-de-pagina-pdf/" class="tool-card" data-tool="pagenum" aria-label="Números de página">
+        <span class="tool-icon">🔢</span>
+        <div class="tool-name">Números de página</div>
+        <div class="tool-desc">Añade números de página en el pie — Arábigos, Romanos o ABC</div>
+      </a>
+      <a href="../../es/extraer-pdf/" class="tool-card" data-tool="extract" aria-label="Extraer Páginas">
+        <span class="tool-icon">📑</span>
+        <div class="tool-name">Extraer Páginas</div>
+        <div class="tool-desc">Extrae páginas seleccionadas a un nuevo PDF</div>
+      </a>
+      <a href="../../es/metadatos-pdf/" class="tool-card" data-tool="meta" aria-label="Editar Metadatos">
+        <span class="tool-icon">🏷️</span>
+        <div class="tool-name">Editar Metadatos</div>
+        <div class="tool-desc">Ver y editar título, autor, palabras clave</div>
+      </a>
+      <a href="../../es/jpg-a-pdf/" class="tool-card" data-tool="jpg2pdf" aria-label="JPG a PDF">
+        <span class="tool-icon">🖼️</span>
+        <div class="tool-name">JPG a PDF</div>
+        <div class="tool-desc">Convierte imágenes a PDF al instante</div>
+      </a>
+      <a href="../../es/pdf-a-jpg/" class="tool-card" data-tool="pdf2jpg" aria-label="PDF a JPG">
+        <span class="tool-icon">📸</span>
+        <div class="tool-name">PDF a JPG</div>
+        <div class="tool-desc">Extrae páginas como imágenes de alta calidad</div>
+      </a>
     </div>
   </section>
 
@@ -298,26 +287,18 @@
     </div>
   </section>
 
-  <!-- ══════════════════════════════════════════════════
-       ZONE B — In-feed native
-       · Показывается после добавления первого файла
-         (выше вовлечённость → выше CTR)
-       · Один impression — не сбрасывается между обработками
-       · <ins> создаётся один раз через ads.js
-       ══════════════════════════════════════════════════ -->
-
   <!-- ── Tool workspace ── -->
   <main id="toolArea" class="main-area" style="display:none" aria-busy="false">
 
     <div class="tool-header">
-      <div class="tool-header-icon" id="toolIcon" aria-hidden="true">🔗</div>
+      <div class="tool-header-icon" id="toolIcon" aria-hidden="true">🗜️</div>
       <div class="tool-header-text">
-        <h2 id="toolTitle">Unir PDF gratis online — sin registro</h2>
-        <p  id="toolDesc">Combina archivos PDF ilimitados al instante. 100% privado, sin subir archivos, sin límites de tamaño.</p>
+        <h2 id="toolTitle">Comprimir PDF Online</h2>
+        <p  id="toolDesc">Reduce el tamaño del PDF sin perder calidad. Procesado en tu navegador — archivos nunca subidos. Gratis, sin límites.</p>
       </div>
     </div>
 
-    <div id="dropZone" class="drop-zone" tabindex="0" role="button" aria-label="Subir archivos — haz clic o arrastra y suelta">
+    <div id="dropZone" class="drop-zone" tabindex="0" role="button" aria-label="Suelta los archivos aquí">
       <input type="file" id="fileInput" multiple accept=".pdf" aria-hidden="true">
       <span class="drop-icon" aria-hidden="true">📂</span>
       <div class="drop-title">Suelta los archivos aquí</div>
@@ -325,28 +306,27 @@
       <button class="drop-btn" id="chooseFilesBtn" type="button">Elegir archivos</button>
     </div>
 
-    <div id="fileList"    class="file-list" aria-live="polite" aria-label="Selected files"></div>
-    <div id="fileCount"   class="file-count"   style="display:none"></div>
-    <div id="reorderHint" class="reorder-hint" style="display:none">↕ Arrastra para reordenar los archivos</div>
+    <div id="fileList"     class="file-list"    aria-live="polite" aria-label="Suelta los archivos aquí"></div>
+    <div id="fileCount"    class="file-count"   style="display:none"></div>
+    <div id="reorderHint"  class="reorder-hint" style="display:none">↕ Arrastra para reordenar los archivos</div>
 
-    <div id="splitOptions"    class="split-options"   style="display:none" aria-label="Split options"></div>
-    <div id="compressOptions" class="compress-options" style="display:none" aria-label="Compression options"></div>
-    <div id="jpg2pdfOptions"  class="j2p-options"     style="display:none" aria-label="JPG to PDF options"></div>
-    <div id="pdf2jpgOptions"  class="j2p-options"     style="display:none" aria-label="PDF to JPG options"></div>
-    <div id="watermarkOptions" class="j2p-options"    style="display:none" aria-label="Watermark options"></div>
-    <div id="pageNumOptions"  class="j2p-options"     style="display:none" aria-label="Page numbers options"></div>
-    <div id="metaOptions"     class="j2p-options"     style="display:none" aria-label="Metadata editor"></div>
-    <div id="protectOptions"  class="j2p-options"     style="display:none" aria-label="Protect PDF options"></div>
-    <div id="redactOptions"   class="j2p-options"     style="display:none" aria-label="Cover Area options"></div>
-    <div id="rotateOptions"   class="j2p-options"     style="display:none" aria-label="Rotate PDF options"></div>
+    <div id="splitOptions"     class="split-options"    style="display:none"></div>
+    <div id="compressOptions"  class="compress-options" style="display:none"></div>
+    <div id="jpg2pdfOptions"   class="j2p-options"      style="display:none"></div>
+    <div id="pdf2jpgOptions"   class="j2p-options"      style="display:none"></div>
+    <div id="watermarkOptions" class="j2p-options"      style="display:none"></div>
+    <div id="pageNumOptions"   class="j2p-options"      style="display:none"></div>
+    <div id="metaOptions"      class="j2p-options"      style="display:none"></div>
+    <div id="protectOptions"   class="j2p-options"      style="display:none"></div>
+    <div id="redactOptions"    class="j2p-options"      style="display:none"></div>
+    <div id="rotateOptions"    class="j2p-options"      style="display:none"></div>
 
-    <button id="mergeBtn"  class="merge-btn"  type="button" disabled data-mode="process">Unir PDF</button>
-    <button id="cancelBtn" class="cancel-btn" type="button" style="display:none" aria-label="Cancel processing">✕ Cancelar</button>
+    <button id="mergeBtn"  class="merge-btn"  type="button" disabled data-mode="process">Comprimir PDF</button>
+    <button id="cancelBtn" class="cancel-btn" type="button" style="display:none" aria-label="✕ Cancelar">✕ Cancelar</button>
 
     <div id="progressBar"   class="progress-bar"><div id="progressFill" class="progress-fill"></div></div>
     <div id="progressLabel" class="progress-label"></div>
 
-    <!-- Success card -->
     <div id="successCard" class="success-card" role="alert" aria-live="polite" style="display:none">
       <div class="success-top">
         <div class="success-icon" aria-hidden="true">✓</div>
@@ -356,17 +336,11 @@
         </div>
         <button id="downloadBtn" class="download-btn" type="button">⬇ Descargar</button>
       </div>
-
-
     </div>
-
-
-
 
   </main>
 
-  <!-- ── SEO Content (for indexing) ── -->
-  <section class="seo-article" aria-labelledby="seoArticleTitle">
+<section class="seo-article" aria-labelledby="seoArticleTitle">
     <div class="seo-article__inner">
       <h2 id="seoArticleTitle">La mejor herramienta PDF gratuita para seguridad y privacidad</h2>
       <p>PDFree está diseñado para ofrecer manipulación de PDF de nivel profesional sin los riesgos asociados a la subida en la nube. Al utilizar nuestras herramientas, el procesamiento se realiza directamente en tu navegador web mediante WebAssembly. Esto significa que tus documentos confidenciales nunca se transmiten por internet.</p>
@@ -391,17 +365,12 @@
       <a href="https://www.gnu.org/licenses/agpl-3.0.html" target="_blank" rel="noopener" style="color:var(--green)">GNU AGPLv3</a>
       &nbsp;·&nbsp;
       <a href="https://github.com/mahmudovbahrom555-lab/PDFree" target="_blank" rel="noopener" style="color:var(--green)">Código fuente en GitHub</a>
-      &nbsp;·&nbsp;
-      <button type="button" data-open-feedback class="fb-footer-btn">💬 Feedback</button>
     </span>
   </footer>
 
   <div id="toast" class="toast" role="status" aria-live="polite"></div>
 
-  <!-- JSZip and pdf-lib are now dynamically imported via ESM when needed -->
   <script type="module" src="../../js/app.js?v=9"></script>
-
-
 <!-- Cloudflare Web Analytics --><script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "5cbef445bc6d4370af5d5ad3d9633534"}'></script><!-- End Cloudflare Web Analytics -->
 </body>
 </html>

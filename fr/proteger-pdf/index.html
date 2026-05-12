@@ -3,6 +3,12 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!--
+    ════════════════════════════════════════════════════════════════
+    Content Security Policy — defence-in-depth against XSS
+    ════════════════════════════════════════════════════════════════
+  -->
   <meta http-equiv="Content-Security-Policy" content="
     default-src 'self';
     script-src  'self'
@@ -35,10 +41,10 @@
   <meta property="og:title"       content="Protéger PDF en Ligne — Chiffrement AES-256, Aucun Envoi | PDFree">
   <meta property="og:description" content="Protéger un PDF avec un mot de passe gratuitement en ligne. Chiffrement AES-256. 100 % privé — aucun envoi, sans inscription.">
   <meta property="og:type"        content="website">
-  <meta property="og:url"         content="https://pdfree.io/fr/proteger-pdf/">
-  <meta property="og:site_name"   content="PDFree">
-  <meta property="og:locale"      content="fr_FR">
-  <meta property="og:image"       content="https://pdfree.io/icons/og-image.jpg">
+  <meta property="og:url"       content="https://pdfree.io/fr/proteger-pdf/">
+  <meta property="og:site_name" content="PDFree">
+  <meta property="og:locale"    content="fr_FR">
+  <meta property="og:image"     content="https://pdfree.io/icons/og-image.jpg">
   <meta property="og:image:width"  content="1200">
   <meta property="og:image:height" content="633">
   <meta name="twitter:card"        content="summary_large_image">
@@ -104,26 +110,18 @@
   "mainEntity": [
     {
       "@type": "Question",
-      "name": "Mes fichiers sont-ils envoyés à un serveur ?",
+      "name": "Mes fichiers sont-ils stockés sur vos serveurs ?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Non. PDFree traite tous les fichiers entièrement dans votre navigateur. Vos documents ne quittent jamais votre appareil."
+        "text": "Non. PDFree fonctionne entièrement sur votre appareil (côté client). Nous n'avons pas de serveurs qui traitent vos fichiers, ce qui garantit 100 % de confidentialité."
       }
     },
     {
       "@type": "Question",
-      "name": "Y a-t-il des limites de taille ou de nombre de pages ?",
+      "name": "Y a-t-il une limite de taille de fichier ou de nombre de pages ?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Non. PDFree n'a pas de limites artificielles. La seule contrainte est la mémoire vive disponible sur votre appareil."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "PDFree fonctionne-t-il hors ligne ?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Oui. PDFree est une Progressive Web App (PWA) et fonctionne entièrement hors ligne après le premier chargement."
+        "text": "Non, il n'y a pas de limites artificielles. La seule limitation est la mémoire vive disponible sur votre ordinateur ou smartphone."
       }
     }
   ]
@@ -143,6 +141,12 @@
     {
       "@type": "ListItem",
       "position": 2,
+      "name": "FR",
+      "item": "https://pdfree.io/fr/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
       "name": "Protéger PDF",
       "item": "https://pdfree.io/fr/proteger-pdf/"
     }
@@ -153,7 +157,7 @@
 <body>
 
   <nav>
-    <a href="../../fr/" class="logo" id="logo" aria-label="Accueil PDFree" style="text-decoration:none">PDF<span>ree</span></a>
+    <a href="../../fr/" class="logo" id="logo" aria-label="Go to homepage" style="text-decoration:none">PDF<span>ree</span></a>
     <div class="nav-links">
       <a href="../../fr/fusionner-pdf/" class="nav-link" data-tool="merge">Fusionner</a>
       <a href="../../fr/diviser-pdf/" class="nav-link" data-tool="split">Diviser</a>
@@ -165,20 +169,23 @@
     </div>
   </nav>
 
+  <!-- ── Hero ── -->
   <section id="hero" class="hero">
     <div class="hero-badge">🔒 100 % privé · aucun envoi · aucun compte · aucune limite</div>
     <h1>Des outils PDF qui<br><em>fonctionnent vraiment</em></h1>
     <p>Fusionner, diviser, compresser, convertir — tout s'exécute <strong>dans votre navigateur</strong>. Vos fichiers ne quittent jamais votre appareil. Aucun serveur. Aucun compte. Rien que des résultats.</p>
   </section>
 
-  <section class="privacy-banner" aria-label="Engagement de confidentialité">
+  <!-- ── Privacy banner ── -->
+  <section class="privacy-banner" aria-label="Privacy promise">
     <div class="privacy-banner__icon" aria-hidden="true">🔒</div>
     <div class="privacy-banner__text">
       <strong>Vos fichiers restent sur votre appareil.</strong>
-      Nous utilisons des Web Workers et des bibliothèques côté client — rien n'est jamais envoyé à un serveur.
+      Nous utilisons des Web Workers et des bibliothèques locales — rien n'est jamais envoyé à un serveur.
     </div>
   </section>
 
+  <!-- ── No-limit bar ── -->
   <div id="noLimitBar" class="no-limit-bar">
     <div class="no-limit-item"><span>✓</span> Aucune limite de taille</div>
     <div class="no-limit-item"><span>✓</span> Aucun filigrane</div>
@@ -186,23 +193,24 @@
     <div class="no-limit-item"><span>🔒</span> Fichiers toujours locaux</div>
   </div>
 
+  <!-- ── Tools grid ── -->
   <section id="toolsGrid" class="tools-section">
     <div class="section-label">Tous les outils</div>
     <div class="tools-grid">
       <a href="../../fr/fusionner-pdf/" class="tool-card featured" data-tool="merge" aria-label="Fusionner PDF">
         <span class="tool-icon">🔗</span>
         <div class="tool-name">Fusionner PDF</div>
-        <div class="tool-desc">Combiner autant de PDF que vous voulez, sans restriction</div>
+        <div class="tool-desc">Fusionner un nombre illimité de fichiers PDF — sans restrictions</div>
+      </a>
+      <a href="../../fr/diviser-pdf/" class="tool-card" data-tool="split" aria-label="Diviser PDF">
+        <span class="tool-icon">✂️</span>
+        <div class="tool-name">Diviser PDF</div>
+        <div class="tool-desc">Extraire des pages ou diviser en fichiers séparés</div>
       </a>
       <a href="../../fr/compresser-pdf/" class="tool-card" data-tool="compress" aria-label="Compresser PDF">
         <span class="tool-icon">🗜️</span>
         <div class="tool-name">Compresser PDF</div>
         <div class="tool-desc">Réduire la taille sans perte de qualité</div>
-      </a>
-      <a href="../../fr/diviser-pdf/" class="tool-card" data-tool="split" aria-label="Diviser PDF">
-        <span class="tool-icon">✂️</span>
-        <div class="tool-name">Diviser PDF</div>
-        <div class="tool-desc">Extraire des pages ou séparer en fichiers individuels</div>
       </a>
       <a href="../../fr/rotation-pdf/" class="tool-card" data-tool="rotate" aria-label="Rotation PDF">
         <span class="tool-icon">🔄</span>
@@ -212,27 +220,32 @@
       <a href="../../fr/filigrane-pdf/" class="tool-card" data-tool="watermark" aria-label="Filigrane PDF">
         <span class="tool-icon">💧</span>
         <div class="tool-name">Filigrane PDF</div>
-        <div class="tool-desc">Ajouter un texte sur chaque page — en diagonale ou en mosaïque</div>
+        <div class="tool-desc">Tamponner du texte sur chaque page — diagonal ou en mosaïque</div>
       </a>
       <a href="../../fr/proteger-pdf/" class="tool-card" data-tool="protect" aria-label="Protéger PDF">
         <span class="tool-icon">🔒</span>
         <div class="tool-name">Protéger PDF</div>
         <div class="tool-desc">Mot de passe AES-256 et permissions — 100 % privé</div>
       </a>
-      <a href="../../fr/censurer-pdf/" class="tool-card" data-tool="redact" aria-label="Caviarder PDF">
+      <a href="../../fr/censurer-pdf/" class="tool-card" data-tool="redact" aria-label="Caviarder Zone">
         <span class="tool-icon">🖌️</span>
-        <div class="tool-name">Caviarder PDF</div>
-        <div class="tool-desc">Supprimer définitivement les données sensibles en local</div>
+        <div class="tool-name">Caviarder Zone</div>
+        <div class="tool-desc">Masquer filigranes, signatures ou données sensibles localement</div>
       </a>
       <a href="../../fr/numerotation-pdf/" class="tool-card" data-tool="pagenum" aria-label="Numérotation PDF">
         <span class="tool-icon">🔢</span>
         <div class="tool-name">Numérotation PDF</div>
-        <div class="tool-desc">Insérer des numéros de page — arabes, romains ou alphabétiques</div>
+        <div class="tool-desc">Ajouter des pieds de page numérotés — arabe, romain ou alphabétique</div>
       </a>
-      <a href="../../fr/extraire-pdf/" class="tool-card" data-tool="extract" aria-label="Extraire des pages">
+      <a href="../../fr/extraire-pdf/" class="tool-card" data-tool="extract" aria-label="Extraire Pages">
         <span class="tool-icon">📑</span>
-        <div class="tool-name">Extraire des pages</div>
-        <div class="tool-desc">Enregistrer les pages sélectionnées dans un nouveau PDF</div>
+        <div class="tool-name">Extraire Pages</div>
+        <div class="tool-desc">Extraire des pages sélectionnées dans un nouveau PDF</div>
+      </a>
+      <a href="../../fr/metadonnees-pdf/" class="tool-card" data-tool="meta" aria-label="Métadonnées PDF">
+        <span class="tool-icon">🏷️</span>
+        <div class="tool-name">Métadonnées PDF</div>
+        <div class="tool-desc">Afficher et modifier titre, auteur, mots-clés</div>
       </a>
       <a href="../../fr/jpg-en-pdf/" class="tool-card" data-tool="jpg2pdf" aria-label="JPG en PDF">
         <span class="tool-icon">🖼️</span>
@@ -242,17 +255,13 @@
       <a href="../../fr/pdf-en-jpg/" class="tool-card" data-tool="pdf2jpg" aria-label="PDF en JPG">
         <span class="tool-icon">📸</span>
         <div class="tool-name">PDF en JPG</div>
-        <div class="tool-desc">Exporter les pages comme images haute qualité</div>
-      </a>
-      <a href="../../fr/metadonnees-pdf/" class="tool-card" data-tool="meta" aria-label="Métadonnées PDF">
-        <span class="tool-icon">🏷️</span>
-        <div class="tool-name">Métadonnées PDF</div>
-        <div class="tool-desc">Afficher et modifier le titre, l'auteur, les mots-clés</div>
+        <div class="tool-desc">Exporter les pages en images haute qualité</div>
       </a>
     </div>
   </section>
 
-  <section class="privacy-bar" aria-label="Garantie de confidentialité">
+  <!-- ── Privacy trust bar ── -->
+  <section class="privacy-bar" aria-label="Privacy guarantee">
     <div class="privacy-bar__inner">
       <div class="privacy-bar__item">
         <span class="privacy-bar__icon" aria-hidden="true">🔒</span>
@@ -278,17 +287,18 @@
     </div>
   </section>
 
+  <!-- ── Tool workspace ── -->
   <main id="toolArea" class="main-area" style="display:none" aria-busy="false">
 
     <div class="tool-header">
       <div class="tool-header-icon" id="toolIcon" aria-hidden="true">🔒</div>
       <div class="tool-header-text">
-        <h2 id="toolTitle">Protéger un PDF — chiffrement AES-256 sans envoi</h2>
-        <p  id="toolDesc">Chiffrez votre PDF avec AES-256. Mot de passe d'ouverture et d'autorisation. 100 % privé, aucun envoi.</p>
+        <h2 id="toolTitle">Protéger PDF en Ligne</h2>
+        <p  id="toolDesc">Protéger un PDF avec un mot de passe gratuitement en ligne. Chiffrement AES-256. 100 % privé — aucun envoi, sans inscription.</p>
       </div>
     </div>
 
-    <div id="dropZone" class="drop-zone" tabindex="0" role="button" aria-label="Sélectionner des fichiers ou les déposer ici">
+    <div id="dropZone" class="drop-zone" tabindex="0" role="button" aria-label="Déposez vos fichiers ici">
       <input type="file" id="fileInput" multiple accept=".pdf" aria-hidden="true">
       <span class="drop-icon" aria-hidden="true">📂</span>
       <div class="drop-title">Déposez vos fichiers ici</div>
@@ -296,23 +306,23 @@
       <button class="drop-btn" id="chooseFilesBtn" type="button">Sélectionner les fichiers</button>
     </div>
 
-    <div id="fileList"    class="file-list" aria-live="polite" aria-label="Fichiers sélectionnés"></div>
-    <div id="fileCount"   class="file-count"   style="display:none"></div>
-    <div id="reorderHint" class="reorder-hint" style="display:none">↕ Glissez pour réorganiser</div>
+    <div id="fileList"     class="file-list"    aria-live="polite" aria-label="Déposez vos fichiers ici"></div>
+    <div id="fileCount"    class="file-count"   style="display:none"></div>
+    <div id="reorderHint"  class="reorder-hint" style="display:none">↕ Glissez pour réorganiser</div>
 
-    <div id="splitOptions"    class="split-options"   style="display:none" aria-label="Options de division"></div>
-    <div id="compressOptions" class="compress-options" style="display:none" aria-label="Options de compression"></div>
-    <div id="jpg2pdfOptions"  class="j2p-options"     style="display:none" aria-label="Options JPG en PDF"></div>
-    <div id="pdf2jpgOptions"  class="j2p-options"     style="display:none" aria-label="Options PDF en JPG"></div>
-    <div id="watermarkOptions" class="j2p-options"    style="display:none" aria-label="Options filigrane"></div>
-    <div id="pageNumOptions"  class="j2p-options"     style="display:none" aria-label="Options numérotation"></div>
-    <div id="metaOptions"     class="j2p-options"     style="display:none" aria-label="Éditeur de métadonnées"></div>
-    <div id="protectOptions"  class="j2p-options"     style="display:none" aria-label="Options de protection"></div>
-    <div id="redactOptions"   class="j2p-options"     style="display:none" aria-label="Options de censure"></div>
-    <div id="rotateOptions"   class="j2p-options"     style="display:none" aria-label="Options de rotation"></div>
+    <div id="splitOptions"     class="split-options"    style="display:none"></div>
+    <div id="compressOptions"  class="compress-options" style="display:none"></div>
+    <div id="jpg2pdfOptions"   class="j2p-options"      style="display:none"></div>
+    <div id="pdf2jpgOptions"   class="j2p-options"      style="display:none"></div>
+    <div id="watermarkOptions" class="j2p-options"      style="display:none"></div>
+    <div id="pageNumOptions"   class="j2p-options"      style="display:none"></div>
+    <div id="metaOptions"      class="j2p-options"      style="display:none"></div>
+    <div id="protectOptions"   class="j2p-options"      style="display:none"></div>
+    <div id="redactOptions"    class="j2p-options"      style="display:none"></div>
+    <div id="rotateOptions"    class="j2p-options"      style="display:none"></div>
 
-    <button id="mergeBtn"  class="merge-btn"  type="button" disabled data-mode="process">Protéger le PDF</button>
-    <button id="cancelBtn" class="cancel-btn" type="button" style="display:none" aria-label="Annuler le traitement">✕ Annuler</button>
+    <button id="mergeBtn"  class="merge-btn"  type="button" disabled data-mode="process">Protéger PDF</button>
+    <button id="cancelBtn" class="cancel-btn" type="button" style="display:none" aria-label="✕ Annuler">✕ Annuler</button>
 
     <div id="progressBar"   class="progress-bar"><div id="progressFill" class="progress-fill"></div></div>
     <div id="progressLabel" class="progress-label"></div>
@@ -330,7 +340,7 @@
 
   </main>
 
-  <section class="seo-article" aria-labelledby="seoArticleTitle">
+<section class="seo-article" aria-labelledby="seoArticleTitle">
     <div class="seo-article__inner">
 
       <h1 id="seoArticleTitle" style="font-size:28px; color:var(--text); margin:0 0 20px; font-weight:700;">Protéger un PDF en Ligne — Chiffrement AES-256 Sans Envoi</h1>
@@ -369,15 +379,12 @@
       <a href="https://www.gnu.org/licenses/agpl-3.0.html" target="_blank" rel="noopener" style="color:var(--green)">GNU AGPLv3</a>
       &nbsp;·&nbsp;
       <a href="https://github.com/mahmudovbahrom555-lab/PDFree" target="_blank" rel="noopener" style="color:var(--green)">Code source sur GitHub</a>
-      &nbsp;·&nbsp;
-      <button type="button" data-open-feedback class="fb-footer-btn">💬 Feedback</button>
     </span>
   </footer>
 
   <div id="toast" class="toast" role="status" aria-live="polite"></div>
 
   <script type="module" src="../../js/app.js?v=9"></script>
-
-<!-- Cloudflare Web Analytics --><script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "5cbef445bc6d4370af5d5ad3d9633534"}' ></script><!-- End Cloudflare Web Analytics -->
+<!-- Cloudflare Web Analytics --><script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "5cbef445bc6d4370af5d5ad3d9633534"}'></script><!-- End Cloudflare Web Analytics -->
 </body>
 </html>
