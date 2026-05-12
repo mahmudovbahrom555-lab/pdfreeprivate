@@ -149,6 +149,18 @@
     <xhtml:link rel="alternate" hreflang="fr" href="https://pdfree.io/fr/pdf-en-jpg/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://pdfree.io/pdf2jpg/"/>
   </url>
+  <url>
+    <loc>https://pdfree.io/metadata-pdf/</loc>
+    <lastmod>2026-05-12</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://pdfree.io/metadata-pdf/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://pdfree.io/es/metadatos-pdf/"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://pdfree.io/pt/metadados-pdf/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://pdfree.io/de/pdf-metadaten/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://pdfree.io/fr/metadonnees-pdf/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://pdfree.io/metadata-pdf/"/>
+  </url>
 
   <!-- ── ES pages ── -->
   <url>
